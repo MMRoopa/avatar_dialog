@@ -100,19 +100,14 @@ class AvatarDialog extends StatelessWidget {
                       crossAxisSpacing: 3,
                     ),
                     itemCount: myIcons.length,
-                    // margin: const EdgeInsets.fromLTRB(15.0, 22.0, 15.0, 25.0),
                     itemBuilder: (context, index) {
                       return ClipOval(
                         child: InkWell(
-                          //overlayColor: Colors.amber,
-                          // highlightColor: Colors.amber,
                           splashColor: Colors.blue.withAlpha(30),
-                          onTap: () {
-                            // print('Tapped on thumbnail.');
-                          },
+                          onTap: () {},
                           child: Container(
                               margin:
-                                  const EdgeInsets.only(top: 5.0, right: 15.0),
+                                  const EdgeInsets.fromLTRB(5.0, 2.0, 5.0, 2.0),
                               height: 85.0,
                               width: 80.0,
                               alignment: Alignment.center,
