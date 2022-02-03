@@ -14,7 +14,7 @@ class _PromoCardPageState extends State<PromoCardPage> {
     return Scaffold(
       body: Center(
         child: PromoCard(
-          playHome: () {
+          onButtonClickCallback: () {
             //  print("Play home is selected.");
           },
         ),
