@@ -10,7 +10,7 @@ class GradeDialog extends StatefulWidget {
   _GradeDialogState createState() => _GradeDialogState();
 }
 
-final List<String?> _list = [
+final List<String> _list = [
   '6',
   '7',
   '8',
@@ -54,13 +54,14 @@ class _GradeDialogState extends State<GradeDialog> {
             ),
             Expanded(
               child: Container(
-                margin: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 2.0),
+                margin:
+                    const EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0),
                 child: GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      mainAxisSpacing: 3,
-                      crossAxisSpacing: 3,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 15,
                     ),
                     itemCount: _list.length,
                     itemBuilder: (context, index) {
@@ -73,7 +74,6 @@ class _GradeDialogState extends State<GradeDialog> {
                           });
                         },
                         child: Container(
-                          margin: const EdgeInsets.fromLTRB(7.0, 5.0, 7.0, 5.0),
                           height:
                               (MediaQuery.of(context).size.width * 0.3) * 0.83,
                           width: MediaQuery.of(context).size.width * 0.3,
@@ -99,54 +99,50 @@ class _GradeDialogState extends State<GradeDialog> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15.0)),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      10.0, 20.0, 10.0, 10.0),
-                                  child: RichText(
-                                    textAlign: TextAlign.center,
-                                    text: TextSpan(children: [
-                                      TextSpan(
-                                        text: _list[index],
-                                        style: const TextStyle(
+                                child: Center(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      AutoSizeText(
+                                        _list[index],
+                                        style: TextStyle(
                                           fontFamily: 'poppins',
                                           fontSize: 28.0,
                                           fontWeight: FontWeight.bold,
-                                          color: Color(0XFF5F5200),
+                                          color: checked
+                                              ? Colors.white
+                                              : const Color(0XFF5F5200),
                                         ),
                                       ),
-                                      WidgetSpan(
-                                        child: Transform.translate(
-                                          offset: const Offset(3, -12),
+                                      Transform.translate(
+                                          offset: const Offset(2, -14),
                                           child: !lastIndex
-                                              ? const Text(
+                                              ? AutoSizeText(
                                                   'th',
-                                                  //superscript is usually smaller in size
-                                                  textScaleFactor: 1,
                                                   style: TextStyle(
+                                                    fontFamily: 'poppins',
                                                     fontSize: 14.0,
-                                                    color: Color(0XFF5F5200),
+                                                    fontWeight: FontWeight.w500,
+                                                    color: checked
+                                                        ? Colors.white
+                                                        : const Color(
+                                                            0XFF5F5200),
                                                   ),
                                                 )
-                                              : null,
-                                        ),
-                                      )
-                                    ]),
+                                              : null),
+                                    ],
                                   ),
                                 ),
                               ),
                               Positioned(
-                                bottom: 12,
-                                right: 12,
+                                bottom: 8,
+                                right: 8,
                                 child: Offstage(
                                   offstage: !checked,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        color: Colors.white,
-                                        shape: BoxShape.circle),
-                                    child: const Icon(
-                                      Icons.check,
-                                      color: Color(0xFF2DAD9D),
-                                    ),
+                                  child: const Icon(
+                                    Icons.check_circle,
+                                    color: Colors.white,
+                                    size: 20.0,
                                   ),
                                 ),
                               ),
