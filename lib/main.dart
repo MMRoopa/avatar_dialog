@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'avatarDialog/avatar_dialog.dart';
 import 'coinDialog/coin_dialog.dart';
+import 'gradeDialog/grade_dialog.dart';
 import 'promoCard/PromoCardPage.dart';
 
 void main() {
@@ -26,7 +27,6 @@ class MyApp extends StatelessWidget {
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-  final int selectedIndex = 29;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               showDialog(
                 context: context,
-                builder: (context) => AvatarDialog(serverIndex: selectedIndex),
+                builder: (context) => const AvatarDialog(),
               );
             },
             child: const Text('Avatar dialog'),
@@ -73,10 +73,25 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               showDialog(
                 context: context,
-                builder: (context) => DialogPopUp(),
+                builder: (context) => const DialogPopUp(),
               );
             },
             child: const Text('Coin Dialog'),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextButton(
+            style: TextButton.styleFrom(
+              textStyle: const TextStyle(fontSize: 20),
+            ),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => const GradeDialog(),
+              );
+            },
+            child: const Text('Grade dialog'),
           ),
         ],
       ),

@@ -20,8 +20,8 @@ class _PromoCardState extends State<PromoCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(10.0),
+          Container(
+            margin: const EdgeInsets.only(top: 12.0, bottom: 6.0),
             child: Image.asset(
               "assets/images/group_6075.png",
               width: MediaQuery.of(context).size.width * 0.40,

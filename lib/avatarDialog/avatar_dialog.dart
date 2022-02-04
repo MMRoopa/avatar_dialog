@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 class AvatarDialog extends StatefulWidget {
-  const AvatarDialog({Key? key, required this.serverIndex}) : super(key: key);
-
-  final int serverIndex;
+  const AvatarDialog({Key? key}) : super(key: key);
 
   @override
   State<AvatarDialog> createState() => _AvatarDialogState();
@@ -13,9 +11,10 @@ class AvatarDialog extends StatefulWidget {
 
 class _AvatarDialogState extends State<AvatarDialog> {
   final AutoScrollController controller = AutoScrollController();
-  int listLength = 30;
+  int listLength = 20;
 
   int selectedIndex = -1;
+  int lastSelectedIndex = 19;
 
   Future _scrollToIndex(int index) async {
     await controller.scrollToIndex(index,
@@ -28,7 +27,7 @@ class _AvatarDialogState extends State<AvatarDialog> {
   @override
   void initState() {
     super.initState();
-    _scrollToIndex(widget.serverIndex);
+    _scrollToIndex(lastSelectedIndex);
   }
 
   @override
@@ -86,8 +85,8 @@ class _AvatarDialogState extends State<AvatarDialog> {
                             });
                           },
                           child: SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.3,
-                            width: MediaQuery.of(context).size.height * 0.3,
+                            height: MediaQuery.of(context).size.width * 0.3,
+                            width: MediaQuery.of(context).size.width * 0.3,
                             child: Stack(children: <Widget>[
                               Card(
                                 margin: const EdgeInsets.fromLTRB(
@@ -101,15 +100,17 @@ class _AvatarDialogState extends State<AvatarDialog> {
                                       10.0, 14.0, 10.0, 10.0),
                                   child: Image.asset(
                                     'assets/images/group_30368.png',
-                                    width: 81.0,
-                                    height: 76.0,
+                                    height: MediaQuery.of(context).size.width *
+                                        0.25,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.25,
                                     fit: BoxFit.fill,
                                     alignment: Alignment.center,
                                   ),
                                 ),
                               ),
                               Positioned(
-                                bottom: 12,
+                                bottom: 5,
                                 right: 15,
                                 child: Offstage(
                                   offstage: !checked,
