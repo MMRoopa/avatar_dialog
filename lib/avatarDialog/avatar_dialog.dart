@@ -11,17 +11,13 @@ class AvatarDialog extends StatefulWidget {
 
 class _AvatarDialogState extends State<AvatarDialog> {
   final AutoScrollController controller = AutoScrollController();
-  int listLength = 20;
+  int listLength = 30;
 
-  int selectedIndex = -1;
-  int lastSelectedIndex = 19;
+  int lastSelectedIndex = 20;
 
   Future _scrollToIndex(int index) async {
     await controller.scrollToIndex(index,
         preferPosition: AutoScrollPosition.begin);
-    setState(() {
-      selectedIndex = index - 1;
-    });
   }
 
   @override
@@ -73,15 +69,15 @@ class _AvatarDialogState extends State<AvatarDialog> {
                     ),
                     itemCount: listLength,
                     itemBuilder: (context, index) {
-                      bool checked = (index == selectedIndex);
+                      bool checked = (index == lastSelectedIndex);
                       return AutoScrollTag(
                         controller: controller,
-                        index: index,
-                        key: ValueKey(index),
+                        index: lastSelectedIndex,
+                        key: ValueKey(lastSelectedIndex),
                         child: InkWell(
                           onTap: () {
                             setState(() {
-                              selectedIndex = index;
+                              lastSelectedIndex = index;
                             });
                           },
                           child: SizedBox(
