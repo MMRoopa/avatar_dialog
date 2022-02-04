@@ -1,5 +1,4 @@
 import 'dart:core';
-import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +21,6 @@ final List<String?> _list = [
   'K-5',
 ];
 int selectedIndex = -1;
-int lastSelectedIndex = 3;
 
 class _GradeDialogState extends State<GradeDialog> {
   @override
