@@ -17,6 +17,7 @@ class _AvatarDialogState extends State<AvatarDialog> {
 
   Future _scrollToIndex(int index) async {
     await controller.scrollToIndex(index,
+        duration: const Duration(milliseconds: 1500),
         preferPosition: AutoScrollPosition.begin);
   }
 
@@ -64,8 +65,8 @@ class _AvatarDialogState extends State<AvatarDialog> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      mainAxisSpacing: 3,
-                      crossAxisSpacing: 3,
+                      mainAxisSpacing: 5,
+                      crossAxisSpacing: 14,
                     ),
                     itemCount: listLength,
                     itemBuilder: (context, index) {
@@ -85,9 +86,6 @@ class _AvatarDialogState extends State<AvatarDialog> {
                             width: MediaQuery.of(context).size.width * 0.3,
                             child: Stack(children: <Widget>[
                               Card(
-                                margin: const EdgeInsets.fromLTRB(
-                                    7.0, 2.0, 7.0, 3.0),
-                                color: Colors.transparent,
                                 shape: const CircleBorder(
                                   side: BorderSide.none,
                                 ),

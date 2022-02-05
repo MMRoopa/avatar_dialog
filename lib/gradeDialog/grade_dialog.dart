@@ -84,70 +84,63 @@ class _GradeDialogState extends State<GradeDialog> {
                               Radius.circular(15.0),
                             ),
                           ),
-                          child: SizedBox(
-                            height: (MediaQuery.of(context).size.width * 0.3) *
-                                0.83,
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            child:
-                                Stack(fit: StackFit.expand, children: <Widget>[
-                              Card(
-                                margin: const EdgeInsets.all(3.0),
-                                color: checked
-                                    ? const Color(0xFF2DAD9D)
-                                    : const Color(0xFFFFF8C9),
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15.0)),
-                                ),
-                                child: Center(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      AutoSizeText(
-                                        _list[index],
-                                        style: TextStyle(
-                                          fontFamily: 'poppins',
-                                          fontSize: 28.0,
-                                          fontWeight: FontWeight.bold,
-                                          color: checked
-                                              ? Colors.white
-                                              : const Color(0XFF5F5200),
-                                        ),
+                          child: Stack(fit: StackFit.expand, children: <Widget>[
+                            Card(
+                              margin: const EdgeInsets.all(3.0),
+                              color: checked
+                                  ? const Color(0xFF2DAD9D)
+                                  : const Color(0xFFFFF8C9),
+                              shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15.0)),
+                              ),
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AutoSizeText(
+                                      _list[index],
+                                      style: TextStyle(
+                                        fontFamily: 'poppins',
+                                        fontSize: 28.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: checked
+                                            ? Colors.white
+                                            : const Color(0XFF5F5200),
                                       ),
-                                      Transform.translate(
-                                          offset: const Offset(2, -14),
-                                          child: !lastIndex
-                                              ? AutoSizeText(
-                                                  'th',
-                                                  style: TextStyle(
-                                                    fontFamily: 'poppins',
-                                                    fontSize: 14.0,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: checked
-                                                        ? Colors.white
-                                                        : const Color(
-                                                            0XFF5F5200),
-                                                  ),
-                                                )
-                                              : null),
-                                    ],
-                                  ),
+                                    ),
+                                    Transform.translate(
+                                        offset: const Offset(2, -14),
+                                        child: !lastIndex
+                                            ? AutoSizeText(
+                                                'th',
+                                                style: TextStyle(
+                                                  fontFamily: 'poppins',
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: checked
+                                                      ? Colors.white
+                                                      : const Color(0XFF5F5200),
+                                                ),
+                                              )
+                                            : null),
+                                  ],
                                 ),
                               ),
-                              Positioned(
-                                bottom: 8,
-                                right: 8,
-                                child: Offstage(
-                                  offstage: !checked,
-                                  child: const Icon(
-                                    Icons.check_circle,
-                                    color: Colors.white,
-                                    size: 20.0,
-                                  ),
+                            ),
+                            Positioned(
+                              bottom: 8,
+                              right: 8,
+                              child: Offstage(
+                                offstage: !checked,
+                                child: const Icon(
+                                  Icons.check_circle,
+                                  color: Colors.white,
+                                  size: 20.0,
                                 ),
                               ),
-                            ]),
-                          ),
+                            ),
+                          ]),
                         ),
                       );
                     }),
