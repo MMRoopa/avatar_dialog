@@ -15,20 +15,20 @@ class _LangDialogState extends State<LangDialog> {
   final AutoScrollController controller = AutoScrollController();
 
   final List<String> _list = [
-    'Kan',
-    'Eng',
-    'Hin',
-    'Tel',
-    'Tam',
-    'Mar',
-    'Ori',
-    'Guj',
-    'Pan',
-    'Fre',
-    'Spa',
-    'Por',
-    'Vie',
-    'Raj',
+    'Kannada',
+    'English',
+    'Hindi',
+    'Telugu',
+    'Tamil',
+    'Marati',
+    'Oriya',
+    'Gujarati',
+    'Panjabi',
+    'French',
+    'Spanish',
+    'Portuguese',
+    'Vietnamese',
+    'Rajastani',
   ];
 
   int lastSelectedIndex = 12;

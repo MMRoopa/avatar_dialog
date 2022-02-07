@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'avatarDialog/avatar_dialog.dart';
 import 'coinDialog/coin_dialog.dart';
 import 'gradeDialog/grade_dialog.dart';
-import 'langDialog/lang_dialog.dart';
+import 'langDialog/lang_dialog_new.dart';
 import 'promoCard/PromoCardPage.dart';
 
 void main() {
