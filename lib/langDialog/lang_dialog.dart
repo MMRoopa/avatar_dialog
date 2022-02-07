@@ -6,7 +6,7 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 
 class LangDialog extends StatefulWidget {
   const LangDialog({Key? key}) : super(key: key);
-git
+
   @override
   _LangDialogState createState() => _LangDialogState();
 }
