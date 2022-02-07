@@ -15,20 +15,16 @@ class _LangDialogState extends State<LangDialog> {
   final AutoScrollController controller = AutoScrollController();
 
   final List<String> _list = [
-    'Kannada',
-    'English',
     'Hindi',
-    'Telugu',
+    'Bengali',
+    'Punjabi',
+    'Kannada',
     'Tamil',
-    'Marati',
-    'Oriya',
-    'Gujarati',
-    'Panjabi',
-    'French',
-    'Spanish',
-    'Portuguese',
-    'Vietnamese',
-    'Rajastani',
+    'Telugu',
+    'Marathi',
+    'Urdu',
+    'Malayalam',
+    'Others'
   ];
 
   int lastSelectedIndex = 12;
@@ -73,21 +69,22 @@ class _LangDialogState extends State<LangDialog> {
                 ),
                 textAlign: TextAlign.center,
                 maxLines: 1,
+                minFontSize: 18.0,
               ),
             ),
             Expanded(
               child: Container(
                 margin: const EdgeInsets.only(
-                    left: 40.0, top: 20.0, right: 40.0, bottom: 20.0),
+                    left: 15.0, top: 20.0, right: 15.0, bottom: 20.0),
                 child: GridView.builder(
                     physics: const ScrollPhysics(),
                     controller: controller,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 10,
                       crossAxisSpacing: 15,
-                      childAspectRatio: (MediaQuery.of(context).size.width /
-                          (MediaQuery.of(context).size.height / 4.5)),
+                      childAspectRatio: 1 / 0.6,
                     ),
                     itemCount: _list.length,
                     itemBuilder: (context, index) {
@@ -103,8 +100,6 @@ class _LangDialogState extends State<LangDialog> {
                             });
                           },
                           child: Container(
-                            // height: MediaQuery.of(context).size.width * 0.2,
-                            // width: (MediaQuery.of(context).size.width * 0.2) * 0.83,
                             decoration: BoxDecoration(
                               border:
                                   Border.all(color: const Color(0xFFBFBFBF)),
@@ -124,15 +119,21 @@ class _LangDialogState extends State<LangDialog> {
                                       BorderRadius.all(Radius.circular(15.0)),
                                 ),
                                 child: Center(
-                                  child: AutoSizeText(
-                                    _list[index],
-                                    style: TextStyle(
-                                      fontFamily: 'poppins',
-                                      fontSize: 28.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: checked
-                                          ? Colors.white
-                                          : const Color(0XFF5F5200),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8.0, right: 8.0),
+                                    child: AutoSizeText(
+                                      _list[index],
+                                      style: TextStyle(
+                                        fontFamily: 'poppins',
+                                        fontSize: 28.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: checked
+                                            ? Colors.white
+                                            : const Color(0XFF5F5200),
+                                      ),
+                                      minFontSize: 20.0,
+                                      maxLines: 1,
                                     ),
                                   ),
                                 ),
@@ -173,6 +174,7 @@ class _LangDialogState extends State<LangDialog> {
                       fontFamily: 'Poppins',
                     ),
                     maxLines: 1,
+                    minFontSize: 12.0,
                   ),
                   decoration: const BoxDecoration(
                     color: Color(0xFF1353CB),
