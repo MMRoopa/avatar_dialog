@@ -87,7 +87,7 @@ class _LangDialogState extends State<LangDialog> {
                       mainAxisSpacing: 10,
                       crossAxisSpacing: 15,
                       childAspectRatio: (MediaQuery.of(context).size.width /
-                          (MediaQuery.of(context).size.height / 4)),
+                          (MediaQuery.of(context).size.height / 4.5)),
                     ),
                     itemCount: _list.length,
                     itemBuilder: (context, index) {
