@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'avatarDialog/avatar_dialog.dart';
 import 'coinDialog/coin_dialog.dart';
 import 'gradeDialog/grade_dialog.dart';
+import 'langDialog/lang_dialog.dart';
 import 'promoCard/PromoCardPage.dart';
 
 void main() {
@@ -92,6 +93,21 @@ class HomePage extends StatelessWidget {
               );
             },
             child: const Text('Grade dialog'),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextButton(
+            style: TextButton.styleFrom(
+              textStyle: const TextStyle(fontSize: 20),
+            ),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => const LangDialog(),
+              );
+            },
+            child: const Text('Language dialog'),
           ),
         ],
       ),
