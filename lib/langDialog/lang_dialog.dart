@@ -15,15 +15,15 @@ class _LangDialogState extends State<LangDialog> {
   final AutoScrollController controller = AutoScrollController();
 
   final List<String> _list = [
-    'Hindi',
-    'Bengali',
-    'Punjabi',
-    'Kannada',
-    'Tamil',
-    'Telugu',
-    'Marathi',
-    'Urdu',
-    'Malayalam',
+    'हिन्दी',
+    'বাংলা',
+    'ਪੰਜਾਬੀ',
+    'ಕನ್ನಡ',
+    'தமிழ்',
+    'తెలుగు',
+    'मराठी',
+    'اردو',
+    'മലയാളം',
     'Others'
   ];
 

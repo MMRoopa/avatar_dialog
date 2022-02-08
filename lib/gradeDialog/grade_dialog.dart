@@ -50,6 +50,7 @@ class _GradeDialogState extends State<GradeDialog> {
                 ),
                 textAlign: TextAlign.center,
                 maxLines: 1,
+                minFontSize: 18.0,
               ),
             ),
             Expanded(
@@ -108,6 +109,8 @@ class _GradeDialogState extends State<GradeDialog> {
                                             ? Colors.white
                                             : const Color(0XFF5F5200),
                                       ),
+                                      maxLines: 1,
+                                      minFontSize: 20.0,
                                     ),
                                     Transform.translate(
                                         offset: const Offset(2, -14),
@@ -122,6 +125,8 @@ class _GradeDialogState extends State<GradeDialog> {
                                                       ? Colors.white
                                                       : const Color(0XFF5F5200),
                                                 ),
+                                                maxLines: 1,
+                                                minFontSize: 6.0,
                                               )
                                             : null),
                                   ],
@@ -163,6 +168,7 @@ class _GradeDialogState extends State<GradeDialog> {
                       fontFamily: 'Poppins',
                     ),
                     maxLines: 1,
+                    minFontSize: 12.0,
                   ),
                   decoration: const BoxDecoration(
                     color: Color(0xFF1353CB),

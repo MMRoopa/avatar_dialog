@@ -54,6 +54,7 @@ class _AvatarDialogState extends State<AvatarDialog> {
                 ),
                 textAlign: TextAlign.center,
                 maxLines: 1,
+                minFontSize: 18.0,
               ),
             ),
             Expanded(
@@ -143,6 +144,7 @@ class _AvatarDialogState extends State<AvatarDialog> {
                       fontFamily: 'Poppins',
                     ),
                     maxLines: 1,
+                    minFontSize: 12.0,
                   ),
                   decoration: const BoxDecoration(
                     color: Color(0xFF1353CB),
