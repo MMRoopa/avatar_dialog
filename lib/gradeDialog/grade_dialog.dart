@@ -10,19 +10,19 @@ class GradeDialog extends StatefulWidget {
   _GradeDialogState createState() => _GradeDialogState();
 }
 
-final List<String> _list = [
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  '11',
-  '12',
-  'K-5',
-];
-int selectedIndex = -1;
-
 class _GradeDialogState extends State<GradeDialog> {
+  final List<String> _list = [
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    'K-5',
+  ];
+  int selectedIndex = -1;
+  String gradeSelected = '';
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -72,6 +72,7 @@ class _GradeDialogState extends State<GradeDialog> {
                         onTap: () {
                           setState(() {
                             selectedIndex = index;
+                            gradeSelected = _list[index];
                           });
                         },
                         child: Container(
@@ -154,7 +155,9 @@ class _GradeDialogState extends State<GradeDialog> {
             Container(
               margin: const EdgeInsets.only(bottom: 21.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context, gradeSelected);
+                },
                 child: Container(
                   alignment: Alignment.center,
                   height: 50.0,

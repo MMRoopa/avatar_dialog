@@ -130,7 +130,9 @@ class _AvatarDialogState extends State<AvatarDialog> {
             Container(
               margin: const EdgeInsets.only(bottom: 21.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context);
+                },
                 child: Container(
                   alignment: Alignment.center,
                   height: 50.0,

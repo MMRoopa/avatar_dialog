@@ -28,6 +28,7 @@ class _LangDialogState extends State<LangDialog> {
   ];
 
   int lastSelectedIndex = 12;
+  String selectedLanguage = '';
 
   Future _scrollToIndex(int index) async {
     await controller.scrollToIndex(index,
@@ -97,6 +98,7 @@ class _LangDialogState extends State<LangDialog> {
                           onTap: () {
                             setState(() {
                               lastSelectedIndex = index;
+                              selectedLanguage = _list[index];
                             });
                           },
                           child: Container(
@@ -160,7 +162,9 @@ class _LangDialogState extends State<LangDialog> {
             Container(
               margin: const EdgeInsets.only(bottom: 21.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context, selectedLanguage);
+                },
                 child: Container(
                   alignment: Alignment.center,
                   height: 50.0,
