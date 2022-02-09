@@ -3,6 +3,7 @@ import 'package:avatar_dialog/avatarDialog/avatar_dialog.dart';
 import 'package:avatar_dialog/gradeDialog/grade_dialog.dart';
 import 'package:avatar_dialog/langDialog/lang_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'constants.dart';
 
@@ -20,6 +21,14 @@ class _ChildDetailsState extends State<ChildDetails> {
   String langResult = '';
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(
+        BoxConstraints(
+            maxWidth: MediaQuery.of(context).size.width,
+            maxHeight: MediaQuery.of(context).size.height),
+        designSize: const Size(375, 896),
+        context: context,
+        minTextAdapt: true,
+        orientation: Orientation.portrait);
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -38,17 +47,17 @@ class _ChildDetailsState extends State<ChildDetails> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 59.0),
-                  child: const AutoSizeText(
+                  child: AutoSizeText(
                     "Child Details",
                     style: TextStyle(
-                      color: Color(0xFF2B2B2B),
-                      fontSize: 26.0,
+                      color: const Color(0xFF2B2B2B),
+                      fontSize: ScreenUtil().setSp(26),
                       fontWeight: FontWeight.w500,
                       fontFamily: 'Poppins',
                     ),
                     textAlign: TextAlign.center,
                     maxLines: 1,
-                    minFontSize: 18.0,
+                    // minFontSize: 18.0,
                   ),
                 ),
               ],
@@ -57,17 +66,17 @@ class _ChildDetailsState extends State<ChildDetails> {
           Container(
             margin:
                 const EdgeInsets.only(left: 38.0, right: 38.0, bottom: 20.0),
-            child: const AutoSizeText(
+            child: AutoSizeText(
               "Help us build the best learning experience for your child",
               style: TextStyle(
-                color: Color(0xFF2B2B2B),
-                fontSize: 14.0,
+                color: const Color(0xFF2B2B2B),
+                fontSize: ScreenUtil().setSp(14),
                 fontWeight: FontWeight.w500,
                 fontFamily: 'Poppins',
               ),
               textAlign: TextAlign.center,
               maxLines: 2,
-              minFontSize: 6.0,
+              //  minFontSize: 6.0,
             ),
           ),
           Expanded(
@@ -76,8 +85,8 @@ class _ChildDetailsState extends State<ChildDetails> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.width * 0.3,
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    height: 108.h,
+                    width: 108.w,
                     margin: const EdgeInsets.only(bottom: 9.0),
                     child: Card(
                       shape: const CircleBorder(
@@ -88,8 +97,8 @@ class _ChildDetailsState extends State<ChildDetails> {
                             const EdgeInsets.fromLTRB(10.0, 14.0, 10.0, 10.0),
                         child: Image.asset(
                           'assets/images/group_30368.png',
-                          height: MediaQuery.of(context).size.width * 0.25,
-                          width: MediaQuery.of(context).size.width * 0.25,
+                          height: 82.h,
+                          width: 88.w,
                           fit: BoxFit.fill,
                           alignment: Alignment.center,
                         ),
@@ -107,8 +116,8 @@ class _ChildDetailsState extends State<ChildDetails> {
                       },
                       child: Container(
                         alignment: Alignment.center,
-                        height: 30.0,
-                        width: 134.0,
+                        height: 30.h,
+                        width: 134.w,
                         decoration: const BoxDecoration(
                           color: Color(0xFFD5E3FF),
                           borderRadius: BorderRadius.all(
@@ -119,19 +128,19 @@ class _ChildDetailsState extends State<ChildDetails> {
                           padding:
                               const EdgeInsets.fromLTRB(10.0, 5.0, 13.0, 4.0),
                           child: Row(
-                            children: const [
+                            children: [
                               AutoSizeText(
                                 'Select Avatar',
                                 style: TextStyle(
-                                  fontSize: 14.0,
-                                  color: Color(0xFF1353CB),
+                                  fontSize: ScreenUtil().setSp(14),
+                                  color: const Color(0xFF1353CB),
                                   fontWeight: FontWeight.w500,
                                   fontFamily: 'Poppins',
                                 ),
                                 maxLines: 1,
-                                minFontSize: 6.0,
+                                //  minFontSize: 6.0,
                               ),
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.only(left: 8.0),
                                 child: Icon(
                                   Icons.keyboard_arrow_right_outlined,
@@ -151,9 +160,9 @@ class _ChildDetailsState extends State<ChildDetails> {
                       decoration: kTextFieldDecoration.copyWith(
                         labelText: 'Child’s Nick Name*',
                       ),
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                   ),
@@ -169,9 +178,9 @@ class _ChildDetailsState extends State<ChildDetails> {
                           color: Color(0xFF1353CB),
                         ),
                       ),
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                       onTap: () {
                         showDialog(
@@ -190,9 +199,9 @@ class _ChildDetailsState extends State<ChildDetails> {
                     child: TextField(
                       decoration:
                           kTextFieldDecoration.copyWith(labelText: 'City'),
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                   ),
@@ -202,9 +211,9 @@ class _ChildDetailsState extends State<ChildDetails> {
                       decoration: kTextFieldDecoration.copyWith(
                         labelText: 'School',
                       ),
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                     ),
                   ),
@@ -220,9 +229,9 @@ class _ChildDetailsState extends State<ChildDetails> {
                           color: Color(0xFF1353CB),
                         ),
                       ),
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
-                        fontSize: 16.0,
+                        fontSize: ScreenUtil().setSp(16),
                       ),
                       onTap: () {
                         showDialog(
@@ -269,16 +278,16 @@ class _ChildDetailsState extends State<ChildDetails> {
                                 }
                               });
                             },
-                            child: const AutoSizeText(
+                            child: AutoSizeText(
                               'Get instant help on Whatsapp',
                               style: TextStyle(
-                                fontSize: 16.0,
-                                color: Color(0xFF1353CB),
+                                fontSize: ScreenUtil().setSp(16),
+                                color: const Color(0xFF1353CB),
                                 fontFamily: 'Poppins',
                               ),
                               textAlign: TextAlign.center,
                               maxLines: 1,
-                              minFontSize: 6.0,
+                              //  minFontSize: 6.0,
                             ),
                           ),
                         ],
@@ -296,8 +305,8 @@ class _ChildDetailsState extends State<ChildDetails> {
               onTap: () {},
               child: Container(
                 alignment: Alignment.center,
-                height: 60.0,
-                width: 338.0,
+                height: 60.h,
+                width: 338.w,
                 child: const AutoSizeText(
                   'START TRIAL',
                   style: TextStyle(
