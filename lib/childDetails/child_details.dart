@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:avatar_dialog/avatarDialog/avatar_dialog.dart';
 import 'package:avatar_dialog/gradeDialog/grade_dialog.dart';
 import 'package:avatar_dialog/langDialog/lang_dialog.dart';
@@ -31,82 +30,96 @@ class _ChildDetailsState extends State<ChildDetails> {
         orientation: Orientation.portrait);
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-            margin: const EdgeInsets.only(top: 38.0, bottom: 92.0, left: 23.0),
+            height: 36.h,
+            width: 375.w,
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(top: 38.h, bottom: 92.h),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const ImageIcon(
-                    AssetImage("assets/images/round_arrow_back.png"),
-                    size: 24.0,
+                Padding(
+                  padding: EdgeInsets.only(left: 23.w),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const ImageIcon(
+                      AssetImage("assets/images/round_arrow_back.png"),
+                      size: 24.0,
+                    ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(left: 59.0),
-                  child: AutoSizeText(
+                Padding(
+                  padding: EdgeInsets.only(left: 59.w, right: 105.w),
+                  child: Text(
                     "Child Details",
                     style: TextStyle(
                       color: const Color(0xFF2B2B2B),
-                      fontSize: ScreenUtil().setSp(26),
+                      fontSize: 26.sp,
                       fontWeight: FontWeight.w500,
                       fontFamily: 'Poppins',
                     ),
+                    textScaleFactor: 1,
                     textAlign: TextAlign.center,
                     maxLines: 1,
-                    // minFontSize: 18.0,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            margin:
-                const EdgeInsets.only(left: 38.0, right: 38.0, bottom: 20.0),
-            child: AutoSizeText(
-              "Help us build the best learning experience for your child",
+            height: 38.h,
+            width: 300.w,
+            margin: EdgeInsets.only(left: 38.w, right: 38.w, bottom: 20.h),
+            child: Text(
+              'Help us build the best learning experience for your child',
               style: TextStyle(
                 color: const Color(0xFF2B2B2B),
-                fontSize: ScreenUtil().setSp(14),
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
                 fontFamily: 'Poppins',
               ),
+              textScaleFactor: 1,
               textAlign: TextAlign.center,
               maxLines: 2,
-              //  minFontSize: 6.0,
             ),
           ),
           Expanded(
             child: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     height: 108.h,
                     width: 108.w,
-                    margin: const EdgeInsets.only(bottom: 9.0),
-                    child: Card(
-                      shape: const CircleBorder(
-                        side: BorderSide.none,
-                      ),
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.fromLTRB(10.0, 14.0, 10.0, 10.0),
-                        child: Image.asset(
-                          'assets/images/group_30368.png',
-                          height: 82.h,
-                          width: 88.w,
-                          fit: BoxFit.fill,
-                          alignment: Alignment.center,
-                        ),
-                      ),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    margin: EdgeInsets.only(bottom: 9.h),
+                    child: Image.asset(
+                      'assets/images/group_30368.png',
+                      height: 82.h,
+                      width: 88.w,
+                      //  fit: BoxFit.fill,
+                      alignment: Alignment.center,
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(bottom: 40.0),
+                    height: 30.h,
+                    width: 134.w,
+                    margin: EdgeInsets.only(bottom: 40.h),
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFD5E3FF),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5.0),
+                      ),
+                    ),
                     child: GestureDetector(
                       onTap: () {
                         showDialog(
@@ -114,60 +127,58 @@ class _ChildDetailsState extends State<ChildDetails> {
                           builder: (context) => const AvatarDialog(),
                         );
                       },
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 30.h,
-                        width: 134.w,
-                        decoration: const BoxDecoration(
-                          color: Color(0xFFD5E3FF),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(5.0),
-                          ),
-                        ),
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.fromLTRB(10.0, 5.0, 13.0, 4.0),
-                          child: Row(
-                            children: [
-                              AutoSizeText(
-                                'Select Avatar',
-                                style: TextStyle(
-                                  fontSize: ScreenUtil().setSp(14),
-                                  color: const Color(0xFF1353CB),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'Poppins',
-                                ),
-                                maxLines: 1,
-                                //  minFontSize: 6.0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 10.w, right: 5.w),
+                            child: Text(
+                              'Select Avatar',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: const Color(0xFF1353CB),
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Poppins',
                               ),
-                              const Padding(
-                                padding: EdgeInsets.only(left: 8.0),
-                                child: Icon(
-                                  Icons.keyboard_arrow_right_outlined,
-                                  color: Color(0xFF1353CB),
-                                  size: 8.0,
-                                ),
-                              ),
-                            ],
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                            ),
                           ),
-                        ),
+                          const SizedBox(
+                            child: Icon(
+                              Icons.keyboard_arrow_right_outlined,
+                              color: Color(0xFF1353CB),
+                              size: 20.0,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.fromLTRB(19, 40, 18, 20),
+                    height: 50.h,
+                    width: 338.w,
+                    margin:
+                        EdgeInsets.only(left: 19.w, right: 18.w, bottom: 20.h),
                     child: TextField(
                       decoration: kTextFieldDecoration.copyWith(
                         labelText: 'Child’s Nick Name*',
+                        labelStyle: TextStyle(
+                          color: Colors.black.withOpacity(0.5),
+                          fontSize: 16.sp,
+                        ),
                       ),
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: ScreenUtil().setSp(16),
+                        fontSize: 16.sp,
                       ),
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.fromLTRB(19, 20, 18, 20),
+                    height: 50.h,
+                    width: 338.w,
+                    margin:
+                        EdgeInsets.only(left: 19.w, right: 18.w, bottom: 20.h),
                     child: TextField(
                       readOnly: true,
                       controller: gradeController,
@@ -177,10 +188,14 @@ class _ChildDetailsState extends State<ChildDetails> {
                           Icons.keyboard_arrow_down,
                           color: Color(0xFF1353CB),
                         ),
+                        labelStyle: TextStyle(
+                          color: Colors.black.withOpacity(0.5),
+                          fontSize: 16.sp,
+                        ),
                       ),
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: ScreenUtil().setSp(16),
+                        fontSize: 16.sp,
                       ),
                       onTap: () {
                         showDialog(
@@ -195,99 +210,129 @@ class _ChildDetailsState extends State<ChildDetails> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.fromLTRB(19, 20, 18, 20),
-                    child: TextField(
-                      decoration:
-                          kTextFieldDecoration.copyWith(labelText: 'City'),
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: ScreenUtil().setSp(16),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(19, 20, 18, 20),
+                    height: 50.h,
+                    width: 338.w,
+                    margin:
+                        EdgeInsets.only(left: 19.w, right: 18.w, bottom: 20.h),
                     child: TextField(
                       decoration: kTextFieldDecoration.copyWith(
-                        labelText: 'School',
-                      ),
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: ScreenUtil().setSp(16),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(19, 20, 18, 20),
-                    child: TextField(
-                      readOnly: true,
-                      controller: langController,
-                      decoration: kTextFieldDecoration.copyWith(
-                        labelText: 'Language',
-                        suffixIcon: const Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Color(0xFF1353CB),
+                        labelText: 'City',
+                        labelStyle: TextStyle(
+                          color: Colors.black.withOpacity(0.5),
+                          fontSize: 16.sp,
                         ),
                       ),
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: ScreenUtil().setSp(16),
+                        fontSize: 16.sp,
                       ),
-                      onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return const LangDialog();
-                          },
-                        ).then((val) {
-                          setState(() {
-                            langController.text = val;
-                          });
-                        });
-                      },
-                      onChanged: (value) {
-                        value = langResult;
-                      },
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 40, bottom: 37),
-                    child: Center(
+                    height: 50.h,
+                    width: 338.w,
+                    margin:
+                        EdgeInsets.only(left: 19.w, right: 18.w, bottom: 40.h),
+                    child: TextField(
+                      decoration: kTextFieldDecoration.copyWith(
+                        labelText: 'School',
+                        labelStyle: TextStyle(
+                          color: Colors.black.withOpacity(0.5),
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.sp,
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: false,
+                    child: Container(
+                      margin: EdgeInsets.only(
+                          left: 19.w, right: 18.w, bottom: 40.h),
+                      child: TextField(
+                        readOnly: true,
+                        controller: langController,
+                        decoration: kTextFieldDecoration.copyWith(
+                          labelText: 'Language',
+                          suffixIcon: const Icon(
+                            Icons.keyboard_arrow_down,
+                            color: Color(0xFF1353CB),
+                          ),
+                          labelStyle: TextStyle(
+                            color: Colors.black.withOpacity(0.5),
+                            fontSize: ScreenUtil().setSp(16),
+                          ),
+                        ),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: ScreenUtil().setSp(16),
+                        ),
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return const LangDialog();
+                            },
+                          ).then((val) {
+                            setState(() {
+                              langController.text = val;
+                            });
+                          });
+                        },
+                        onChanged: (value) {
+                          value = langResult;
+                        },
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 23.h,
+                    width: 256.w,
+                    margin: EdgeInsets.only(bottom: 37.h),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          if (isCheckedHelpOnWhatsApp) {
+                            isCheckedHelpOnWhatsApp = false;
+                          } else {
+                            isCheckedHelpOnWhatsApp = true;
+                          }
+                        });
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Checkbox(
-                            checkColor: Colors.white,
-                            activeColor: const Color(0xFF1353CB),
-                            shape: const CircleBorder(),
-                            side: const BorderSide(color: Color(0xFF1353CB)),
-                            value: isCheckedHelpOnWhatsApp,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                isCheckedHelpOnWhatsApp = value!;
-                              });
-                            },
+                          SizedBox(
+                            width: 16.w,
+                            height: 16.h,
+                            child: Checkbox(
+                              checkColor: Colors.white,
+                              activeColor: const Color(0xFF1353CB),
+                              shape: const CircleBorder(),
+                              side: const BorderSide(color: Color(0xFF1353CB)),
+                              value: isCheckedHelpOnWhatsApp,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  isCheckedHelpOnWhatsApp = value!;
+                                });
+                              },
+                            ),
                           ), //Che
-                          TextButton(
-                            onPressed: () {
-                              setState(() {
-                                if (isCheckedHelpOnWhatsApp) {
-                                  isCheckedHelpOnWhatsApp = false;
-                                } else {
-                                  isCheckedHelpOnWhatsApp = true;
-                                }
-                              });
-                            },
-                            child: AutoSizeText(
+                          Padding(
+                            padding: EdgeInsets.only(left: 5.w),
+                            child: Text(
                               'Get instant help on Whatsapp',
                               style: TextStyle(
-                                fontSize: ScreenUtil().setSp(16),
+                                fontSize: 16.sp,
                                 color: const Color(0xFF1353CB),
                                 fontFamily: 'Poppins',
                               ),
                               textAlign: TextAlign.center,
                               maxLines: 1,
-                              //  minFontSize: 6.0,
                             ),
                           ),
                         ],
@@ -299,34 +344,33 @@ class _ChildDetailsState extends State<ChildDetails> {
             ),
           ),
           Container(
-            margin:
-                const EdgeInsets.only(left: 19.0, right: 18.0, bottom: 64.0),
+            height: 60.h,
+            width: 338.w,
+            margin: EdgeInsets.only(bottom: 64.h),
+            decoration: const BoxDecoration(
+              color: Color(0xFF1353CB),
+              borderRadius: BorderRadius.all(Radius.circular(50.0)),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0x1568E580),
+                  blurRadius: 10.0,
+                )
+              ],
+            ),
             child: GestureDetector(
               onTap: () {},
               child: Container(
                 alignment: Alignment.center,
-                height: 60.h,
-                width: 338.w,
-                child: const AutoSizeText(
+                child: Text(
                   'START TRIAL',
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 20.sp,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Poppins',
                   ),
+                  textAlign: TextAlign.center,
                   maxLines: 1,
-                  minFontSize: 12.0,
-                ),
-                decoration: const BoxDecoration(
-                  color: Color(0xFF1353CB),
-                  borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x1568E580),
-                      blurRadius: 10.0,
-                    )
-                  ],
                 ),
               ),
             ),

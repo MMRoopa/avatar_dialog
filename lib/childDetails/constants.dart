@@ -15,8 +15,4 @@ const kTextFieldDecoration = InputDecoration(
     ),
   ),
   labelText: 'Child’s Nick Name*',
-  labelStyle: TextStyle(
-    color: Colors.black,
-    fontSize: 16.0,
-  ),
 );

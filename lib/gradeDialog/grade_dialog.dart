@@ -72,7 +72,11 @@ class _GradeDialogState extends State<GradeDialog> {
                         onTap: () {
                           setState(() {
                             selectedIndex = index;
-                            gradeSelected = _list[index];
+                            if (lastIndex) {
+                              gradeSelected = _list[index];
+                            } else {
+                              gradeSelected = _list[index] + 'th';
+                            }
                           });
                         },
                         child: Container(
