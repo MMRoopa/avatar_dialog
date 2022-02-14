@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:avatar_dialog/avatarDialog/avatar_dialog.dart';
 import 'package:avatar_dialog/gradeDialog/grade_dialog.dart';
 import 'package:avatar_dialog/langDialog/lang_dialog.dart';
@@ -27,6 +28,7 @@ class _ChildDetailsState extends State<ChildDetails> {
         designSize: const Size(375, 896),
         context: context,
         minTextAdapt: true,
+        splitScreenMode: true,
         orientation: Orientation.portrait);
     return Scaffold(
       body: Column(
@@ -40,6 +42,7 @@ class _ChildDetailsState extends State<ChildDetails> {
             margin: EdgeInsets.only(top: 38.h, bottom: 92.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(left: 23.w),
@@ -47,23 +50,24 @@ class _ChildDetailsState extends State<ChildDetails> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const ImageIcon(
-                      AssetImage("assets/images/round_arrow_back.png"),
-                      size: 24.0,
+                    icon: const Icon(
+                      Icons.arrow_back_ios_outlined,
+                      color: Color(0xFF2B2B2B),
                     ),
+                    iconSize: 24.0,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 59.w, right: 105.w),
-                  child: Text(
+                  child: const AutoSizeText(
                     "Child Details",
                     style: TextStyle(
-                      color: const Color(0xFF2B2B2B),
-                      fontSize: 26.sp,
+                      color: Color(0xFF2B2B2B),
+                      fontSize: 26.0,
                       fontWeight: FontWeight.w500,
                       fontFamily: 'Poppins',
                     ),
-                    textScaleFactor: 1,
+                    minFontSize: 16.0, //with 18.0 overflowing in Nexus One
                     textAlign: TextAlign.center,
                     maxLines: 1,
                   ),
@@ -75,22 +79,21 @@ class _ChildDetailsState extends State<ChildDetails> {
             height: 38.h,
             width: 300.w,
             margin: EdgeInsets.only(left: 38.w, right: 38.w, bottom: 20.h),
-            child: Text(
+            child: const AutoSizeText(
               'Help us build the best learning experience for your child',
               style: TextStyle(
-                color: const Color(0xFF2B2B2B),
-                fontSize: 14.sp,
+                color: Color(0xFF2B2B2B),
+                fontSize: 14.0,
                 fontWeight: FontWeight.w500,
                 fontFamily: 'Poppins',
               ),
-              textScaleFactor: 1,
+              minFontSize: 6.0,
               textAlign: TextAlign.center,
               maxLines: 2,
             ),
           ),
           Expanded(
             child: SingleChildScrollView(
-              physics: const ClampingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -132,21 +135,22 @@ class _ChildDetailsState extends State<ChildDetails> {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(left: 10.w, right: 5.w),
-                            child: Text(
+                            child: const AutoSizeText(
                               'Select Avatar',
                               style: TextStyle(
-                                fontSize: 14.sp,
-                                color: const Color(0xFF1353CB),
+                                fontSize: 14.0,
+                                color: Color(0xFF1353CB),
                                 fontWeight: FontWeight.w500,
                                 fontFamily: 'Poppins',
                               ),
+                              minFontSize: 6.0,
                               textAlign: TextAlign.center,
                               maxLines: 1,
                             ),
                           ),
                           const SizedBox(
                             child: Icon(
-                              Icons.keyboard_arrow_right_outlined,
+                              Icons.arrow_right_sharp,
                               color: Color(0xFF1353CB),
                               size: 20.0,
                             ),
@@ -166,11 +170,13 @@ class _ChildDetailsState extends State<ChildDetails> {
                         labelStyle: TextStyle(
                           color: Colors.black.withOpacity(0.5),
                           fontSize: 16.sp,
+                          fontFamily: 'Poppins',
                         ),
                       ),
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 16.sp,
+                        fontFamily: 'Poppins',
                       ),
                     ),
                   ),
@@ -185,17 +191,20 @@ class _ChildDetailsState extends State<ChildDetails> {
                       decoration: kTextFieldDecoration.copyWith(
                         labelText: 'Grade*',
                         suffixIcon: const Icon(
-                          Icons.keyboard_arrow_down,
+                          Icons.arrow_drop_down_sharp,
                           color: Color(0xFF1353CB),
+                          size: 20.0,
                         ),
                         labelStyle: TextStyle(
                           color: Colors.black.withOpacity(0.5),
                           fontSize: 16.sp,
+                          fontFamily: 'Poppins',
                         ),
                       ),
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 16.sp,
+                        fontFamily: 'Poppins',
                       ),
                       onTap: () {
                         showDialog(
@@ -220,11 +229,13 @@ class _ChildDetailsState extends State<ChildDetails> {
                         labelStyle: TextStyle(
                           color: Colors.black.withOpacity(0.5),
                           fontSize: 16.sp,
+                          fontFamily: 'Poppins',
                         ),
                       ),
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 16.sp,
+                        fontFamily: 'Poppins',
                       ),
                     ),
                   ),
@@ -239,11 +250,13 @@ class _ChildDetailsState extends State<ChildDetails> {
                         labelStyle: TextStyle(
                           color: Colors.black.withOpacity(0.5),
                           fontSize: 16.sp,
+                          fontFamily: 'Poppins',
                         ),
                       ),
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 16.sp,
+                        fontFamily: 'Poppins',
                       ),
                     ),
                   ),
@@ -260,15 +273,18 @@ class _ChildDetailsState extends State<ChildDetails> {
                           suffixIcon: const Icon(
                             Icons.keyboard_arrow_down,
                             color: Color(0xFF1353CB),
+                            size: 20.0,
                           ),
                           labelStyle: TextStyle(
                             color: Colors.black.withOpacity(0.5),
-                            fontSize: ScreenUtil().setSp(16),
+                            fontSize: 16.sp,
+                            fontFamily: 'Poppins',
                           ),
                         ),
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: ScreenUtil().setSp(16),
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
                         ),
                         onTap: () {
                           showDialog(
@@ -324,13 +340,14 @@ class _ChildDetailsState extends State<ChildDetails> {
                           ), //Che
                           Padding(
                             padding: EdgeInsets.only(left: 5.w),
-                            child: Text(
+                            child: const AutoSizeText(
                               'Get instant help on Whatsapp',
                               style: TextStyle(
-                                fontSize: 16.sp,
-                                color: const Color(0xFF1353CB),
+                                fontSize: 16.0,
+                                color: Color(0xFF1353CB),
                                 fontFamily: 'Poppins',
                               ),
+                              minFontSize: 8.0,
                               textAlign: TextAlign.center,
                               maxLines: 1,
                             ),
@@ -361,14 +378,15 @@ class _ChildDetailsState extends State<ChildDetails> {
               onTap: () {},
               child: Container(
                 alignment: Alignment.center,
-                child: Text(
+                child: const AutoSizeText(
                   'START TRIAL',
                   style: TextStyle(
-                    fontSize: 20.sp,
+                    fontSize: 20.0,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Poppins',
                   ),
+                  minFontSize: 12.0,
                   textAlign: TextAlign.center,
                   maxLines: 1,
                 ),
