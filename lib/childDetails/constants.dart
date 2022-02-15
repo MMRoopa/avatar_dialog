@@ -14,5 +14,10 @@ const kTextFieldDecoration = InputDecoration(
       Radius.circular(10.0),
     ),
   ),
+  floatingLabelStyle: TextStyle(
+    color: Colors.black,
+    fontSize: 12.0,
+    fontFamily: 'Poppins',
+  ),
   labelText: 'Child’s Nick Name*',
 );
