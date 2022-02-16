@@ -21,24 +21,30 @@ class _ChildDetailsState extends State<ChildDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: ListView(
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          children: [
-            titleWidget(context),
-            pageText(),
-            avatarImage(),
-            selectAvatar(context),
-            childName(),
-            childGrade(context),
-            childCity(),
-            childSchool(),
-            // childLanguage(context),
-            selectWhatsapp(),
-            startTrial(),
-          ],
-        ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              children: [
+                titleWidget(context),
+                pageText(),
+                avatarImage(),
+                selectAvatar(context),
+                childName(),
+                childGrade(context),
+                childCity(),
+                childSchool(),
+                // childLanguage(context),
+                selectWhatsapp(),
+                startTrial(),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -66,7 +72,7 @@ class _ChildDetailsState extends State<ChildDetails> {
     return Container(
       height: 60.h,
       width: 338.w,
-      margin: EdgeInsets.only(bottom: 64.h),
+      margin: EdgeInsets.only(left: 19.w, bottom: 64.h, right: 18.w),
       decoration: const BoxDecoration(
         color: Color(0xFF1353CB),
         borderRadius: BorderRadius.all(Radius.circular(50.0)),
@@ -330,8 +336,8 @@ class _ChildDetailsState extends State<ChildDetails> {
               child: Text(
                 'Select Avatar',
                 style: TextStyle(
-                  fontSize: 14.sp,
                   color: const Color(0xFF1353CB),
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Poppins',
                 ),
@@ -359,7 +365,7 @@ class _ChildDetailsState extends State<ChildDetails> {
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
       ),
-      margin: EdgeInsets.only(top: 20.h, bottom: 9.h),
+      margin: EdgeInsets.only(bottom: 9.h),
       child: Image.asset(
         'assets/images/group_30368.png',
         height: 82.h,
