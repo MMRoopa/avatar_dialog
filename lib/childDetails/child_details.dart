@@ -21,30 +21,27 @@ class _ChildDetailsState extends State<ChildDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            child: ListView(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              children: [
-                titleWidget(context),
-                pageText(),
-                avatarImage(),
-                selectAvatar(context),
-                childName(),
-                childGrade(context),
-                childCity(),
-                childSchool(),
-                // childLanguage(context),
-                selectWhatsapp(),
-                startTrial(),
-              ],
-            ),
+      body: Container(
+        alignment: Alignment.center,
+        child: Expanded(
+          child: ListView(
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            children: [
+              titleWidget(context),
+              pageText(),
+              avatarImage(),
+              selectAvatar(context),
+              childName(),
+              childGrade(context),
+              childCity(),
+              childSchool(),
+              // childLanguage(context),
+              selectWhatsapp(),
+              startTrial(),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
