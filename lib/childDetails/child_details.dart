@@ -67,7 +67,7 @@ class _ChildDetailsState extends State<ChildDetails> {
     return Container(
       height: 60.h,
       width: 338.w,
-      margin: EdgeInsets.only(left: 19.w, bottom: 64.h, right: 18.w),
+      margin: EdgeInsets.only(left: 19.w, top: 20.h, bottom: 64.h, right: 18.w),
       decoration: const BoxDecoration(
         color: Color(0xFF1353CB),
         borderRadius: BorderRadius.all(Radius.circular(50.0)),
@@ -154,7 +154,7 @@ class _ChildDetailsState extends State<ChildDetails> {
 
   Container childLanguage(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 19.w, right: 18.w, bottom: 40.h),
+      margin: EdgeInsets.only(left: 19.w, right: 18.w, bottom: 20.h),
       child: TextField(
         readOnly: true,
         controller: langController,
