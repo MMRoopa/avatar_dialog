@@ -23,24 +23,22 @@ class _ChildDetailsState extends State<ChildDetails> {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        child: Expanded(
-          child: ListView(
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            children: [
-              titleWidget(context),
-              pageText(),
-              avatarImage(),
-              selectAvatar(context),
-              childName(),
-              childGrade(context),
-              childCity(),
-              childSchool(),
-              // childLanguage(context),
-              selectWhatsapp(),
-              startTrial(),
-            ],
-          ),
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          children: [
+            titleWidget(context),
+            pageText(),
+            avatarImage(),
+            selectAvatar(context),
+            childName(),
+            childGrade(context),
+            childCity(),
+            childSchool(),
+            childLanguage(context),
+            // selectWhatsapp(),
+            startTrial(),
+          ],
         ),
       ),
     );
@@ -50,7 +48,7 @@ class _ChildDetailsState extends State<ChildDetails> {
     return Container(
       height: 38.h,
       width: 300.w,
-      margin: EdgeInsets.only(left: 38.w, top: 92.h, right: 38.w),
+      margin: EdgeInsets.only(left: 38.w, top: 92.h, right: 38.w, bottom: 20.h),
       child: Text(
         'Help us build the best learning experience for your child',
         style: TextStyle(
@@ -201,7 +199,7 @@ class _ChildDetailsState extends State<ChildDetails> {
     return Container(
       height: 50.h,
       width: 338.w,
-      margin: EdgeInsets.only(left: 19.w, right: 18.w, bottom: 40.h),
+      margin: EdgeInsets.only(left: 19.w, right: 18.w, bottom: 20.h),
       child: TextField(
         decoration: kTextFieldDecoration.copyWith(
           labelText: 'School',
