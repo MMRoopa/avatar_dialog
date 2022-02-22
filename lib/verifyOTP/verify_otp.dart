@@ -15,6 +15,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
   bool enableContinue = false;
   bool enableResend = false;
   bool wrongCode = false;
+  String otp = '1234';
 
   @override
   void dispose() {
@@ -141,16 +142,19 @@ class _VerifyOTPState extends State<VerifyOTP> {
             inactiveColor: const Color(0xFF1353CB)),
         animationDuration: const Duration(milliseconds: 300),
         keyboardType: TextInputType.number,
-        //  errorAnimationController: errorController,
-        // controller: textEditingController,
-        onChanged: (String value) {},
+        onChanged: (String value) {
+          setState(() {
+            if (value != otp.substring(0, value.length)) {
+              wrongCode = true;
+            } else {
+              wrongCode = false;
+            }
+          });
+        },
         onCompleted: (String value) {
           setState(() {
-            if (value == '1234') {
+            if (value == otp) {
               enableContinue = true;
-              wrongCode = false;
-            } else {
-              wrongCode = true;
             }
           });
         },
@@ -261,7 +265,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
       margin: EdgeInsets.only(top: 12.h, bottom: 30.h),
       alignment: Alignment.center,
       child: GestureDetector(
-        onTap: () {},
+        behavior: HitTestBehavior.translucent,
+        onTap: () {
+          Navigator.pop(context);
+        },
         child:
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
           Text(
@@ -278,7 +285,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
           Padding(
             padding: EdgeInsets.only(left: 5.sp),
             child: const Icon(
-              Icons.feed_outlined,
+              Icons.edit,
               color: Color(0xFF1353CB),
               size: 18.0,
             ),
