@@ -15,6 +15,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
   bool enableContinue = false;
   bool enableResend = false;
   bool wrongCode = false;
+  //Color errorCodeBorder = const Color(0xFFFF0000);
   String otp = '1234';
 
   @override
@@ -130,16 +131,17 @@ class _VerifyOTPState extends State<VerifyOTP> {
         length: 4,
         obscureText: false,
         pinTheme: PinTheme(
-            fieldOuterPadding: EdgeInsets.only(right: 10.w),
-            shape: PinCodeFieldShape.box,
-            borderRadius: BorderRadius.circular(6.0),
-            fieldHeight: 50.h,
-            fieldWidth: 61.w,
-            selectedColor: const Color(0xFF1353CB),
-            activeColor: const Color(0xFF1353CB),
-            activeFillColor: Colors.white,
-            errorBorderColor: const Color(0xFFFF0000),
-            inactiveColor: const Color(0xFF1353CB)),
+          fieldOuterPadding: EdgeInsets.only(right: 10.w),
+          shape: PinCodeFieldShape.box,
+          borderRadius: BorderRadius.circular(6.0),
+          fieldHeight: 50.h,
+          fieldWidth: 61.w,
+          // selectedColor: const Color(0xFF1353CB),
+          activeColor:
+              wrongCode ? const Color(0xFFFF0000) : const Color(0xFF1353CB),
+          activeFillColor: Colors.white,
+          inactiveColor: const Color(0xFF1353CB),
+        ),
         animationDuration: const Duration(milliseconds: 300),
         keyboardType: TextInputType.number,
         onChanged: (String value) {
