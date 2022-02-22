@@ -15,7 +15,6 @@ class _VerifyOTPState extends State<VerifyOTP> {
   bool enableContinue = false;
   bool enableResend = false;
   bool wrongCode = false;
-  //Color errorCodeBorder = const Color(0xFFFF0000);
   String otp = '1234';
 
   @override
@@ -50,10 +49,9 @@ class _VerifyOTPState extends State<VerifyOTP> {
     );
   }
 
-  Container errorText() {
-    return Container(
+  SizedBox errorText() {
+    return SizedBox(
       height: 20.h,
-      margin: EdgeInsets.only(top: 15.h),
       child: wrongCode
           ? Text(
               'Incorrect verification code',
@@ -136,7 +134,6 @@ class _VerifyOTPState extends State<VerifyOTP> {
           borderRadius: BorderRadius.circular(6.0),
           fieldHeight: 50.h,
           fieldWidth: 61.w,
-          // selectedColor: const Color(0xFF1353CB),
           activeColor:
               wrongCode ? const Color(0xFFFF0000) : const Color(0xFF1353CB),
           activeFillColor: Colors.white,
@@ -234,7 +231,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
   Container pageText() {
     return Container(
       height: 20.h,
-      margin: EdgeInsets.only(top: 33.h, bottom: 12.h),
+      margin: EdgeInsets.only(top: 38.h, bottom: 12.h),
       child: Text(
         'Enter the 4-digit code sent to you at',
         style: TextStyle(
@@ -264,7 +261,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
 
   Container phoneNumber(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 12.h, bottom: 30.h),
+      margin: EdgeInsets.only(bottom: 30.h),
       alignment: Alignment.center,
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
