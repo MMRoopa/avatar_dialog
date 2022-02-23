@@ -80,15 +80,28 @@ class _VerifyOTPState extends State<VerifyOTP> {
                 alignment: Alignment.center,
                 height: 60.h,
                 width: 284.w,
-                child: Text(
-                  enableResend ? 'RESEND >' : 'CONTINUE',
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Poppins',
-                  ),
-                  maxLines: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      enableResend ? 'RESEND' : 'CONTINUE',
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Poppins',
+                      ),
+                      maxLines: 1,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.sp),
+                      child: const Icon(
+                        Icons.keyboard_arrow_right_sharp,
+                        color: Colors.white,
+                        size: 24.0,
+                      ),
+                    ),
+                  ],
                 ),
                 decoration: const BoxDecoration(
                   color: Color(0xFF1353CB),
@@ -103,15 +116,28 @@ class _VerifyOTPState extends State<VerifyOTP> {
               alignment: Alignment.center,
               height: 60.h,
               width: 284.w,
-              child: Text(
-                'CONTINUE >',
-                style: TextStyle(
-                  fontSize: 20.sp,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Poppins',
-                ),
-                maxLines: 1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'CONTINUE',
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Poppins',
+                    ),
+                    maxLines: 1,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.sp),
+                    child: const Icon(
+                      Icons.keyboard_arrow_right_sharp,
+                      color: Colors.white,
+                      size: 24.0,
+                    ),
+                  ),
+                ],
               ),
               decoration: const BoxDecoration(
                 color: Color(0xFFB1B1B1),
@@ -134,10 +160,13 @@ class _VerifyOTPState extends State<VerifyOTP> {
           borderRadius: BorderRadius.circular(6.0),
           fieldHeight: 50.h,
           fieldWidth: 61.w,
+          selectedColor:
+              wrongCode ? const Color(0xFFFF0000) : const Color(0xFF1353CB),
           activeColor:
               wrongCode ? const Color(0xFFFF0000) : const Color(0xFF1353CB),
           activeFillColor: Colors.white,
-          inactiveColor: const Color(0xFF1353CB),
+          inactiveColor:
+              wrongCode ? const Color(0xFFFF0000) : const Color(0xFF1353CB),
         ),
         animationDuration: const Duration(milliseconds: 300),
         keyboardType: TextInputType.number,
@@ -166,16 +195,37 @@ class _VerifyOTPState extends State<VerifyOTP> {
       height: 20.h,
       margin: EdgeInsets.only(top: 245.h, bottom: 31.h),
       child: enableResend
-          ? Text(
-              'Didn’t receive the OTP? Resend',
-              style: TextStyle(
-                color: const Color(0xFF2B2B2B),
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Poppins',
-              ),
-              textAlign: TextAlign.center,
-              maxLines: 1,
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Didn’t receive the OTP? ',
+                  style: TextStyle(
+                    color: const Color(0xFF2B2B2B),
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Poppins',
+                  ),
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    'Resend',
+                    style: TextStyle(
+                      color: const Color(0xFF1353CB),
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Poppins',
+                    ),
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                  ),
+                ),
+              ],
             )
           : Row(
               mainAxisAlignment: MainAxisAlignment.center,
