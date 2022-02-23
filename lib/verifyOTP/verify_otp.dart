@@ -11,11 +11,12 @@ class VerifyOTP extends StatefulWidget {
 }
 
 class _VerifyOTPState extends State<VerifyOTP> {
-  final CustomTimerController _timerController = CustomTimerController();
+  CustomTimerController _timerController = CustomTimerController();
   bool enableContinue = false;
   bool enableResend = false;
   bool wrongCode = false;
-  String otp = '1234';
+  String otpRecieved = '1234';
+  String otpEntered = '';
 
   @override
   void dispose() {
@@ -26,6 +27,21 @@ class _VerifyOTPState extends State<VerifyOTP> {
   @override
   void initState() {
     super.initState();
+    _timerController.start();
+  }
+
+  void validateOTPOnContinue() {
+    setState(() {
+      if (otpEntered != otpRecieved) {
+        wrongCode = true;
+      } else {
+        wrongCode = false;
+      }
+    });
+  }
+
+  void resetTimer() {
+    _timerController = CustomTimerController();
     _timerController.start();
   }
 
@@ -71,10 +87,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
   Container continueBtn(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 46.w, right: 45.w, bottom: 46.h),
-      child: enableContinue | enableResend
+      child: enableContinue
           ? GestureDetector(
               onTap: () {
-                Navigator.pop(context);
+                validateOTPOnContinue();
               },
               child: Container(
                 alignment: Alignment.center,
@@ -84,7 +100,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      enableResend ? 'RESEND' : 'CONTINUE',
+                      'CONTINUE',
                       style: TextStyle(
                         fontSize: 20.sp,
                         color: Colors.white,
@@ -106,9 +122,6 @@ class _VerifyOTPState extends State<VerifyOTP> {
                 decoration: const BoxDecoration(
                   color: Color(0xFF1353CB),
                   borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                  boxShadow: [
-                    BoxShadow(color: Color(0xFF1568E5), blurRadius: 10.0)
-                  ],
                 ),
               ),
             )
@@ -170,21 +183,13 @@ class _VerifyOTPState extends State<VerifyOTP> {
         ),
         animationDuration: const Duration(milliseconds: 300),
         keyboardType: TextInputType.number,
-        onChanged: (String value) {
-          setState(() {
-            if (value != otp.substring(0, value.length)) {
-              wrongCode = true;
-            } else {
-              wrongCode = false;
-            }
-          });
-        },
+        onChanged: (value) {},
         onCompleted: (String value) {
           setState(() {
-            if (value == otp) {
-              enableContinue = true;
-            }
+            enableContinue = true;
           });
+
+          otpEntered = value;
         },
       ),
     );
@@ -211,7 +216,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pop(context);
+                    resetTimer();
+                    setState(() {
+                      enableResend = false;
+                    });
                   },
                   child: Text(
                     'Resend',
@@ -336,7 +344,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
             child: const Icon(
               Icons.edit,
               color: Color(0xFF1353CB),
-              size: 18.0,
+              size: 14.0,
             ),
           ),
         ]),
