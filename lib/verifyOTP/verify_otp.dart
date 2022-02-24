@@ -181,8 +181,8 @@ class _VerifyOTPState extends State<VerifyOTP> {
           setState(() {
             if (value.isEmpty) {
               enableContinue = false;
-              wrongCode = false;
             }
+            wrongCode = false;
           });
         },
         onCompleted: (String value) {
