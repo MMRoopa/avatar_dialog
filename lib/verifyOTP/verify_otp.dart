@@ -179,7 +179,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
         keyboardType: TextInputType.number,
         onChanged: (value) {
           setState(() {
-            if (value.isEmpty) {
+            if (value.length < 4) {
               enableContinue = false;
             }
             wrongCode = false;
@@ -360,10 +360,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: const Icon(
+              child: Icon(
                 Icons.arrow_back_ios_outlined,
-                color: Color(0xFF2B2B2B),
-                size: 24.0,
+                color: const Color(0xFF2B2B2B),
+                size: 24.sp,
               ),
             ),
           ),
