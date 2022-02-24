@@ -109,10 +109,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
                       ),
                       maxLines: 1,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.keyboard_arrow_right_sharp,
                       color: Colors.white,
-                      size: 24.sp,
+                      size: 24.0,
                     ),
                   ],
                 ),
@@ -139,10 +139,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
                     ),
                     maxLines: 1,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.keyboard_arrow_right_sharp,
                     color: Colors.white,
-                    size: 24.sp,
+                    size: 24.0,
                   ),
                 ],
               ),
@@ -156,13 +156,15 @@ class _VerifyOTPState extends State<VerifyOTP> {
 
   Container otpEditor(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       margin: EdgeInsets.only(left: 40.w, right: 40.w),
       child: PinCodeTextField(
+        mainAxisAlignment: MainAxisAlignment.center,
         appContext: context,
         length: 4,
         obscureText: false,
         pinTheme: PinTheme(
-          fieldOuterPadding: EdgeInsets.only(right: 10.w),
+          fieldOuterPadding: EdgeInsets.only(left: 5.w, right: 5.w),
           shape: PinCodeFieldShape.box,
           borderRadius: BorderRadius.circular(6.0),
           fieldHeight: 50.h,
@@ -340,7 +342,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
             textAlign: TextAlign.center,
             maxLines: 1,
           ),
-          Icon(Icons.edit, color: const Color(0xFF1353CB), size: 14.sp),
+          const Icon(Icons.edit, color: Color(0xFF1353CB), size: 14.0),
         ]),
       ),
     );
@@ -360,10 +362,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_back_ios_outlined,
-                color: const Color(0xFF2B2B2B),
-                size: 24.sp,
+                color: Color(0xFF2B2B2B),
+                size: 24.0,
               ),
             ),
           ),
