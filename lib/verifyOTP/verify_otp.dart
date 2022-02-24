@@ -40,7 +40,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
     });
   }
 
-  void resetTimer() {
+  void restartTimer() {
     _timerController = CustomTimerController();
     _timerController.start();
   }
@@ -109,13 +109,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
                       ),
                       maxLines: 1,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 10.sp),
-                      child: const Icon(
-                        Icons.keyboard_arrow_right_sharp,
-                        color: Colors.white,
-                        size: 24.0,
-                      ),
+                    Icon(
+                      Icons.keyboard_arrow_right_sharp,
+                      color: Colors.white,
+                      size: 24.sp,
                     ),
                   ],
                 ),
@@ -142,13 +139,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
                     ),
                     maxLines: 1,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.sp),
-                    child: const Icon(
-                      Icons.keyboard_arrow_right_sharp,
-                      color: Colors.white,
-                      size: 24.0,
-                    ),
+                  Icon(
+                    Icons.keyboard_arrow_right_sharp,
+                    color: Colors.white,
+                    size: 24.sp,
                   ),
                 ],
               ),
@@ -183,7 +177,14 @@ class _VerifyOTPState extends State<VerifyOTP> {
         ),
         animationDuration: const Duration(milliseconds: 300),
         keyboardType: TextInputType.number,
-        onChanged: (value) {},
+        onChanged: (value) {
+          setState(() {
+            if (value.isEmpty) {
+              enableContinue = false;
+              wrongCode = false;
+            }
+          });
+        },
         onCompleted: (String value) {
           setState(() {
             enableContinue = true;
@@ -216,7 +217,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    resetTimer();
+                    restartTimer();
                     setState(() {
                       enableResend = false;
                     });
@@ -339,14 +340,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
             textAlign: TextAlign.center,
             maxLines: 1,
           ),
-          Padding(
-            padding: EdgeInsets.only(left: 5.sp),
-            child: const Icon(
-              Icons.edit,
-              color: Color(0xFF1353CB),
-              size: 14.0,
-            ),
-          ),
+          Icon(Icons.edit, color: const Color(0xFF1353CB), size: 14.sp),
         ]),
       ),
     );
