@@ -356,8 +356,11 @@ class _VerifyOTPState extends State<VerifyOTP> {
       child: Stack(
         alignment: AlignmentDirectional.centerStart,
         children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(left: 23.w),
+          Positioned(
+            bottom: 4.h,
+            left: 23.w,
+            width: 24.w,
+            height: 24.h,
             child: GestureDetector(
               onTap: () {
                 Navigator.pop(context);
@@ -365,11 +368,11 @@ class _VerifyOTPState extends State<VerifyOTP> {
               child: const Icon(
                 Icons.arrow_back_ios_outlined,
                 color: Color(0xFF2B2B2B),
-                size: 24.0,
               ),
             ),
           ),
           Center(
+            // heightFactor: 36.h,
             child: Text(
               "Phone verification",
               style: TextStyle(
