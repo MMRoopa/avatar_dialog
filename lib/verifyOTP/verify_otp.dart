@@ -109,10 +109,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
                       ),
                       maxLines: 1,
                     ),
-                    const Icon(
-                      Icons.keyboard_arrow_right_sharp,
+                    Icon(
+                      Icons.keyboard_arrow_right_outlined,
                       color: Colors.white,
-                      size: 24.0,
+                      size: 28.h,
                     ),
                   ],
                 ),
@@ -139,10 +139,10 @@ class _VerifyOTPState extends State<VerifyOTP> {
                     ),
                     maxLines: 1,
                   ),
-                  const Icon(
-                    Icons.keyboard_arrow_right_sharp,
+                  Icon(
+                    Icons.keyboard_arrow_right_outlined,
                     color: Colors.white,
-                    size: 24.0,
+                    size: 28.h,
                   ),
                 ],
               ),
@@ -157,7 +157,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
   Container otpEditor(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      margin: EdgeInsets.only(left: 40.w, right: 40.w),
+      margin: EdgeInsets.only(left: 45.w, right: 45.w),
       child: PinCodeTextField(
         mainAxisAlignment: MainAxisAlignment.center,
         appContext: context,
@@ -342,7 +342,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
             textAlign: TextAlign.center,
             maxLines: 1,
           ),
-          const Icon(Icons.edit, color: Color(0xFF1353CB), size: 14.0),
+          Icon(Icons.edit, color: const Color(0xFF1353CB), size: 14.h),
         ]),
       ),
     );
@@ -356,23 +356,21 @@ class _VerifyOTPState extends State<VerifyOTP> {
       child: Stack(
         alignment: AlignmentDirectional.centerStart,
         children: <Widget>[
-          Positioned(
-            bottom: 4.h,
-            left: 23.w,
-            width: 24.w,
-            height: 24.h,
+          Container(
+            margin: EdgeInsets.only(left: 23.w, top: 5.h),
             child: GestureDetector(
               onTap: () {
                 Navigator.pop(context);
               },
-              child: const Icon(
+              child: Icon(
                 Icons.arrow_back_ios_outlined,
-                color: Color(0xFF2B2B2B),
+                color: const Color(0xFF2B2B2B),
+                size: 28.h,
               ),
             ),
           ),
-          Center(
-            // heightFactor: 36.h,
+          Container(
+            alignment: Alignment.center,
             child: Text(
               "Phone verification",
               style: TextStyle(
