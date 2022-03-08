@@ -52,7 +52,6 @@ class _PhoneNumberState extends State<PhoneNumber> {
         ),
       ),
       child: Row(
-        //  alignment: AlignmentDirectional.topStart,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
