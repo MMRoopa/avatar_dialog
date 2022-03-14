@@ -1,4 +1,7 @@
 import 'package:avatar_dialog/childDetails/child_details.dart';
+import 'package:avatar_dialog/page234/page234.dart';
+import 'package:avatar_dialog/phonenumber/phonenumber_page.dart';
+import 'package:avatar_dialog/verifyOTP/verify_otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -47,6 +50,54 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 20),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => const Page234(),
+                  ),
+                );
+              },
+              child: const Text('Page 234'),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 20),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => const PhoneNumber(),
+                  ),
+                );
+              },
+              child: const Text('PhoneNumber Page'),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 20),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => const VerifyOTP(),
+                  ),
+                );
+              },
+              child: const Text('verifyOTP'),
+            ),
             const SizedBox(
               height: 20.0,
             ),
