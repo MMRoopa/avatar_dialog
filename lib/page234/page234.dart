@@ -119,6 +119,8 @@ class _Page234State extends State<Page234> {
                             }))
                         .toList(),
                     options: CarouselOptions(
+                      autoPlay: true,
+                      autoPlayInterval: const Duration(seconds: 4),
                       onPageChanged: (index, reason) {
                         setState(() {
                           activeIndex = index;
