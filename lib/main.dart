@@ -1,3 +1,4 @@
+import 'package:avatar_dialog/Drawer/drawer.dart';
 import 'package:avatar_dialog/childDetails/child_details.dart';
 import 'package:avatar_dialog/page234/page234.dart';
 import 'package:avatar_dialog/phonenumber/phonenumber_page.dart';
@@ -47,149 +48,168 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const DrawerWidget(),
+                    ),
+                  );
+                },
+                child: const Text('Drawer'),
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const Page234(),
-                  ),
-                );
-              },
-              child: const Text('Page 234'),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
+              const SizedBox(
+                height: 20.0,
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const PhoneNumber(),
-                  ),
-                );
-              },
-              child: const Text('PhoneNumber Page'),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const Page234(),
+                    ),
+                  );
+                },
+                child: const Text('Page 234'),
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const VerifyOTP(),
-                  ),
-                );
-              },
-              child: const Text('verifyOTP'),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
+              const SizedBox(
+                height: 20.0,
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const ChildDetails(),
-                  ),
-                );
-              },
-              child: const Text('Child Details'),
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const PhoneNumber(),
+                    ),
+                  );
+                },
+                child: const Text('PhoneNumber Page'),
               ),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => const AvatarDialog(),
-                );
-              },
-              child: const Text('Avatar dialog'),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
+              const SizedBox(
+                height: 20.0,
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const PromoCardPage(),
-                  ),
-                );
-              },
-              child: const Text('PromoCard'),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const VerifyOTP(),
+                    ),
+                  );
+                },
+                child: const Text('verifyOTP'),
               ),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => const DialogPopUp(),
-                );
-              },
-              child: const Text('Coin Dialog'),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
+              const SizedBox(
+                height: 20.0,
               ),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => const GradeDialog(),
-                );
-              },
-              child: const Text('Grade dialog'),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const ChildDetails(),
+                    ),
+                  );
+                },
+                child: const Text('Child Details'),
               ),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => const LangDialog(),
-                );
-              },
-              child: const Text('Language dialog'),
-            ),
-          ],
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const AvatarDialog(),
+                  );
+                },
+                child: const Text('Avatar dialog'),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const PromoCardPage(),
+                    ),
+                  );
+                },
+                child: const Text('PromoCard'),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const DialogPopUp(),
+                  );
+                },
+                child: const Text('Coin Dialog'),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const GradeDialog(),
+                  );
+                },
+                child: const Text('Grade dialog'),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const LangDialog(),
+                  );
+                },
+                child: const Text('Language dialog'),
+              ),
+            ],
+          ),
         ),
       ),
     );
