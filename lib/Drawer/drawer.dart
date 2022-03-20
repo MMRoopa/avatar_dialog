@@ -61,57 +61,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               children: [
                 Column(
                   children: <Widget>[
-                    Header(context),
-                    Container(
-                      height: 349.h,
-                      width: 294.w,
-                      margin: EdgeInsets.only(left: 10.w, right: 10.w),
-                      alignment: AlignmentDirectional.centerStart,
-                      child: ListView.builder(
-                          itemCount: 5, //items.length,
-                          itemBuilder: (BuildContext context, index) {
-                            return ListTile(
-                              contentPadding: EdgeInsets.only(
-                                left: 14.w,
-                                right: 10.w,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0)),
-                              selectedTileColor: const Color(0xFFEFF0FF),
-                              trailing: Padding(
-                                padding: EdgeInsets.only(right: 10.w),
-                                child: const Icon(
-                                  Icons.arrow_forward_ios_sharp,
-                                  color: Colors.black,
-                                  size: 20,
-                                ),
-                              ),
-                              title: Text(
-                                items[index]['title'],
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  color: const Color(0xFF2B2B2B),
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              leading: Padding(
-                                padding:
-                                    EdgeInsets.fromLTRB(14.w, 16.h, 15.w, 13.h),
-                                child: Image.asset(
-                                  items[index]["icon"],
-                                  alignment: Alignment.centerLeft,
-                                  fit: BoxFit.fill,
-                                  width: 16.w,
-                                  height: 20.h,
-                                ),
-                              ),
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                            );
-                          }),
-                    ),
+                    header(context),
+                    ListItems(),
                     footerImage(),
                   ],
                 ),
@@ -134,11 +85,61 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         ));
   }
 
+  Container ListItems() {
+    return Container(
+      height: 390.h,
+      width: 294.w,
+      margin: EdgeInsets.only(left: 10.w, right: 10.w),
+      alignment: AlignmentDirectional.centerStart,
+      child: ListView.builder(
+          itemCount: 5, //items.length,
+          itemBuilder: (BuildContext context, index) {
+            return ListTile(
+              contentPadding: EdgeInsets.only(
+                  left: 14.w, right: 10.w, top: 10.h, bottom: 10.h),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0)),
+              selectedTileColor: const Color(0xFFEFF0FF),
+              trailing: Padding(
+                padding: EdgeInsets.only(right: 10.w),
+                child: const Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  color: Colors.black,
+                  size: 20,
+                ),
+              ),
+              title: Text(
+                items[index]['title'],
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: const Color(0xFF2B2B2B),
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              leading: Padding(
+                padding: EdgeInsets.only(top: 16.h, bottom: 13.h),
+                child: Image.asset(
+                  items[index]["icon"],
+                  alignment: Alignment.centerLeft,
+                  fit: BoxFit.fill,
+                  width: 24,
+                  height: 24,
+                ),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            );
+          }),
+    );
+  }
+
   Container footerImage() {
     return Container(
       width: 314.w,
       height: 114.h,
-      margin: EdgeInsets.only(top: 194.h),
+      margin: EdgeInsets.only(top: 153.h),
       child: ClipRRect(
         borderRadius: const BorderRadius.only(bottomRight: Radius.circular(20)),
         child: Image.asset(
@@ -149,7 +150,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     );
   }
 
-  GestureDetector Header(BuildContext context) {
+  GestureDetector header(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.pop(context);
@@ -160,7 +161,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         margin: EdgeInsets.fromLTRB(11.w, 11.h, 10.w, 20.h),
         child: DrawerHeader(
           padding: const EdgeInsets.all(0.0),
-          //margin: EdgeInsets.fromLTRB(11.w, 11.h, 10.w, 20.h),
+          margin: const EdgeInsets.all(0.0),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10)),
             gradient: LinearGradient(
@@ -193,42 +194,48 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               SizedBox(
                 width: 8.w,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Hi Ranveer',
-                    style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                  Text(
-                    'Welcome Back!',
-                    style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                  Text(
-                    '6th Grade',
-                    style: TextStyle(
-                        fontSize: 14.sp,
-                        fontFamily: 'Poppins',
-                        color: Colors.white),
-                  ),
-                ],
+              SizedBox(
+                width: 159.w,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Hi Ranveer',
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                      maxLines: 2,
+                    ),
+                    Text(
+                      'Welcome Back!',
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                      maxLines: 1,
+                    ),
+                    Text(
+                      '6th Grade',
+                      style: TextStyle(
+                          fontSize: 14.sp,
+                          fontFamily: 'Poppins',
+                          color: Colors.white),
+                      maxLines: 1,
+                    ),
+                  ],
+                ),
               ),
               Container(
                 alignment: Alignment.centerRight,
-                margin: EdgeInsets.only(left: 60.w, right: 10.w),
-                child: Icon(
+                margin: EdgeInsets.only(left: 10.w, right: 10.w),
+                child: const Icon(
                   Icons.keyboard_arrow_right_outlined,
                   color: Colors.white,
-                  size: 28.h,
+                  size: 20,
                 ),
               ),
             ],
