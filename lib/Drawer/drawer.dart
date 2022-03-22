@@ -62,7 +62,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 Column(
                   children: <Widget>[
                     header(context),
-                    ListItems(),
+                    listItems(),
                     footerImage(),
                   ],
                 ),
@@ -85,25 +85,26 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         ));
   }
 
-  Container ListItems() {
+  Container listItems() {
     return Container(
       height: 390.h,
       width: 294.w,
       margin: EdgeInsets.only(left: 10.w, right: 10.w),
       alignment: AlignmentDirectional.centerStart,
       child: ListView.builder(
+          shrinkWrap: true,
           itemCount: 5, //items.length,
           itemBuilder: (BuildContext context, index) {
             return ListTile(
-              contentPadding: EdgeInsets.only(
-                  left: 14.w, right: 10.w, top: 10.h, bottom: 10.h),
+              contentPadding:
+                  EdgeInsets.only(right: 10.w, top: 10.h, bottom: 10.h),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0)),
               selectedTileColor: const Color(0xFFEFF0FF),
               trailing: Padding(
-                padding: EdgeInsets.only(right: 10.w),
+                padding: EdgeInsets.only(right: 5.w),
                 child: const Icon(
-                  Icons.arrow_forward_ios_sharp,
+                  Icons.keyboard_arrow_right_outlined,
                   color: Colors.black,
                   size: 20,
                 ),
@@ -116,15 +117,16 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
                 ),
+                maxLines: 1,
+                textAlign: TextAlign.left,
               ),
               leading: Padding(
-                padding: EdgeInsets.only(top: 16.h, bottom: 13.h),
+                padding: const EdgeInsets.only(left: 15.0),
                 child: Image.asset(
                   items[index]["icon"],
-                  alignment: Alignment.centerLeft,
-                  fit: BoxFit.fill,
-                  width: 24,
-                  height: 24,
+                  fit: BoxFit.scaleDown,
+                  width: 24.w,
+                  height: 24.h,
                 ),
               ),
               onTap: () {
@@ -180,9 +182,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               Container(
                 height: 75.h,
                 width: 75.w,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle, color: Colors.white),
-                // margin: EdgeInsets.only(bottom: 9.h),
+                decoration: const BoxDecoration(shape: BoxShape.circle),
                 child: Image.asset(
                   'assets/images/group_30368.png',
                   height: 61.h,
@@ -234,6 +234,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 margin: EdgeInsets.only(left: 10.w, right: 10.w),
                 child: const Icon(
                   Icons.keyboard_arrow_right_outlined,
+                  // Icons.arrow_forward_ios_sharp,
                   color: Colors.white,
                   size: 20,
                 ),
