@@ -1,4 +1,5 @@
 import 'package:avatar_dialog/Drawer/drawer.dart';
+import 'package:avatar_dialog/MyProfile/my_profile.dart';
 import 'package:avatar_dialog/childDetails/child_details.dart';
 import 'package:avatar_dialog/page234/page234.dart';
 import 'package:avatar_dialog/phonenumber/phonenumber_page.dart';
@@ -52,6 +53,20 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const MyProfile(),
+                    ),
+                  );
+                },
+                child: const Text('My Profile'),
+              ),
               TextButton(
                 style: TextButton.styleFrom(
                   textStyle: const TextStyle(fontSize: 20),
