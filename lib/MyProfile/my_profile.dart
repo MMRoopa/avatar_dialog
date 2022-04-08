@@ -1,7 +1,9 @@
 import 'package:avatar_dialog/avatarDialog/avatar_dialog.dart';
 import 'package:avatar_dialog/childDetails/constants.dart';
+import 'package:avatar_dialog/gradeDialog/grade_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({Key? key}) : super(key: key);
@@ -11,6 +13,7 @@ class MyProfile extends StatefulWidget {
 }
 
 class _MyProfileState extends State<MyProfile> {
+  final gradeController = TextEditingController(text: '10th');
   bool dataBackUpOnOff = false;
   bool chatBackUpOnOff = false;
 
@@ -47,7 +50,6 @@ class _MyProfileState extends State<MyProfile> {
 
   AppBar title(BuildContext context) {
     return AppBar(
-      toolbarHeight: 96.h,
       backgroundColor: Colors.white,
       leading: GestureDetector(
         onTap: () {
@@ -72,7 +74,7 @@ class _MyProfileState extends State<MyProfile> {
       actions: [
         PopupMenuButton(
             padding: EdgeInsets.only(right: 14.w),
-            offset: const Offset(-23, 56),
+            offset: const Offset(-30, 40),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(5.0))),
             icon: const Icon(
@@ -297,7 +299,7 @@ class _MyProfileState extends State<MyProfile> {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.fromLTRB(20.w, 20.h, 19.w, 28.h),
+            margin: EdgeInsets.fromLTRB(21.w, 20.h, 19.w, 28.h),
             alignment: Alignment.centerLeft,
             child: Text(
               'Other Details',
@@ -370,21 +372,26 @@ class _MyProfileState extends State<MyProfile> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(right: 19.w),
-                  child: SizedBox(
-                    width: 22.w,
-                    height: 14.h,
-                    child: Switch(
-                      value: dataBackUpOnOff,
-                      onChanged: (value) {
-                        setState(() {
-                          dataBackUpOnOff = value;
-                        });
-                      },
-                      // activeTrackColor: const Color(0xFF2DAD9D),
-                      activeColor: const Color(0xFF2DAD9D),
-                      // inactiveTrackColor: Colors.black,
-                      inactiveThumbColor: Colors.black,
-                    ),
+                  child: FlutterSwitch(
+                    width: 22.0,
+                    height: 14.0,
+                    activeSwitchBorder:
+                        Border.all(color: const Color(0xFF2DAD9D)),
+                    activeToggleColor: const Color(0xFF2DAD9D),
+                    activeColor: Colors.white,
+                    inactiveColor: Colors.white,
+                    inactiveToggleColor: Colors.black,
+                    inactiveSwitchBorder: Border.all(color: Colors.black),
+                    toggleSize: 8.0,
+                    value: dataBackUpOnOff,
+                    borderRadius: 10.0,
+                    padding: 2.0,
+                    // showOnOff: true,
+                    onToggle: (val) {
+                      setState(() {
+                        dataBackUpOnOff = val;
+                      });
+                    },
                   ),
                 ),
               ],
@@ -417,21 +424,26 @@ class _MyProfileState extends State<MyProfile> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(right: 19.w),
-                  child: SizedBox(
-                    width: 22.w,
-                    height: 14.h,
-                    child: Switch(
-                      value: chatBackUpOnOff,
-                      onChanged: (value) {
-                        setState(() {
-                          chatBackUpOnOff = value;
-                        });
-                      },
-                      //activeTrackColor: const Color(0xFF2DAD9D),
-                      activeColor: const Color(0xFF2DAD9D),
-                      //inactiveTrackColor: Colors.black,
-                      inactiveThumbColor: Colors.black,
-                    ),
+                  child: FlutterSwitch(
+                    width: 22.0,
+                    height: 14.0,
+                    activeSwitchBorder:
+                        Border.all(color: const Color(0xFF2DAD9D)),
+                    activeToggleColor: const Color(0xFF2DAD9D),
+                    activeColor: Colors.white,
+                    inactiveColor: Colors.white,
+                    inactiveToggleColor: Colors.black,
+                    inactiveSwitchBorder: Border.all(color: Colors.black),
+                    toggleSize: 8.0,
+                    value: chatBackUpOnOff,
+                    borderRadius: 10.0,
+                    padding: 2.0,
+                    // showOnOff: true,
+                    onToggle: (val) {
+                      setState(() {
+                        chatBackUpOnOff = val;
+                      });
+                    },
                   ),
                 ),
               ],
@@ -456,7 +468,7 @@ class _MyProfileState extends State<MyProfile> {
         children: [
           Container(
             width: 295.w,
-            margin: EdgeInsets.fromLTRB(21.w, 20.h, 19.w, 9.h),
+            margin: EdgeInsets.fromLTRB(21.w, 19.h, 16.w, 11.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -546,22 +558,36 @@ class _MyProfileState extends State<MyProfile> {
             width: 300.w,
             margin: EdgeInsets.fromLTRB(20.w, 10.h, 16.w, 23.h),
             child: TextField(
-              readOnly: editPersonalInfo ? false : true,
-              controller: TextEditingController(text: '10th'),
-              decoration: kTextFieldDecoration.copyWith(
-                labelText: 'Grade',
-                labelStyle: TextStyle(
-                  color: Colors.black.withOpacity(0.5),
+                readOnly: editPersonalInfo ? false : true,
+                controller: gradeController,
+                decoration: kTextFieldDecoration.copyWith(
+                  suffixIcon: const Icon(
+                    Icons.keyboard_arrow_down_sharp,
+                    color: Color(0xFF1353CB),
+                    size: 20.0,
+                  ),
+                  labelText: 'Grade',
+                  labelStyle: TextStyle(
+                    color: Colors.black.withOpacity(0.5),
+                    fontSize: 16.sp,
+                    fontFamily: 'Poppins',
+                  ),
+                ),
+                style: TextStyle(
+                  color: Colors.black,
                   fontSize: 16.sp,
                   fontFamily: 'Poppins',
                 ),
-              ),
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16.sp,
-                fontFamily: 'Poppins',
-              ),
-            ),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const GradeDialog(),
+                  ).then((val) {
+                    setState(() {
+                      gradeController.text = val;
+                    });
+                  });
+                }),
           ),
         ],
       ),
@@ -582,7 +608,7 @@ class _MyProfileState extends State<MyProfile> {
         children: [
           Container(
             width: 295.w,
-            margin: EdgeInsets.fromLTRB(21.w, 20.h, 19.w, 9.h),
+            margin: EdgeInsets.fromLTRB(21.w, 20.h, 16.w, 9.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

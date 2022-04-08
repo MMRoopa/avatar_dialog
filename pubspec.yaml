@@ -52,6 +52,7 @@ dev_dependencies:
   custom_timer: ^0.1.1
   carousel_slider: ^4.0.0
   smooth_page_indicator: ^1.0.0+2
+  flutter_switch: ^0.3.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
