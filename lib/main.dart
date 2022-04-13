@@ -3,6 +3,7 @@ import 'package:avatar_dialog/MyProfile/my_profile.dart';
 import 'package:avatar_dialog/childDetails/child_details.dart';
 import 'package:avatar_dialog/page234/page234.dart';
 import 'package:avatar_dialog/phonenumber/phonenumber_page.dart';
+import 'package:avatar_dialog/purchase_dialog/purchase_dialog.dart';
 import 'package:avatar_dialog/verifyOTP/verify_otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +11,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'avatarDialog/avatar_dialog.dart';
 import 'coinDialog/coin_dialog.dart';
 import 'gradeDialog/grade_dialog.dart';
-import 'langDialog/lang_dialog.dart';
 import 'promoCard/PromoCardPage.dart';
 
 void main() {
@@ -53,6 +53,21 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const PurchaseDialog(),
+                  );
+                },
+                child: const Text('Purchase dialog'),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
               TextButton(
                 style: TextButton.styleFrom(
                   textStyle: const TextStyle(fontSize: 20),
@@ -207,21 +222,6 @@ class HomePage extends StatelessWidget {
                   );
                 },
                 child: const Text('Grade dialog'),
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 20),
-                ),
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => const LangDialog(),
-                  );
-                },
-                child: const Text('Language dialog'),
               ),
             ],
           ),
