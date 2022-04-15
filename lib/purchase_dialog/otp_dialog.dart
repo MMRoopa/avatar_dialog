@@ -103,7 +103,7 @@ class _OtpDialogState extends State<OtpDialog> {
           color: const Color(0xFF2B2B2B),
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Poppins',
+          fontFamily: 'Roboto',
         ),
         textAlign: TextAlign.center,
         maxLines: 1,
@@ -146,16 +146,16 @@ class _OtpDialogState extends State<OtpDialog> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(15.w, 12.h, 34.w, 12.h),
+            padding: EdgeInsets.fromLTRB(15.w, 18.h, 25.w, 1.h),
             child: Image.asset(
               'assets/images/Group_5838.png',
               height: 76.h,
               width: 71.w,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 12.h, bottom: 12.h),
+            padding: EdgeInsets.only(top: 20.h, bottom: 12.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
